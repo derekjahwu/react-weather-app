@@ -10,7 +10,7 @@ function Application() {
     const [rain, setRain] = useState('');
     const [text, setText] = useState('');
     const [weather, setWeather] = useState(() => {
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=dbe5af8d5484472c84d03742210311&q=berlin&days=7&aqi=no&alerts=no
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=dbe5af8d5484472c84d03742210311&q=berlin&days=7&aqi=no&alerts=no
         `)
             .then(response => response.json())
             .then(data => {
@@ -26,7 +26,7 @@ function Application() {
     )
 
     
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=dbe5af8d5484472c84d03742210311&q=${query}&days=7&aqi=no&alerts=no
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=dbe5af8d5484472c84d03742210311&q=${query}&days=7&aqi=no&alerts=no
     `
 
     const search = (e) => {
@@ -36,7 +36,6 @@ function Application() {
             .then(data => {
                 if(data) {
                     setWeather(Math.floor(data.current.feelslike_f))
-                console.log(data)
                 setCountry(`${data.location.name}, ${data.location.country}`)
                 setDate(data.forecast.forecastday[0].date);
                 setImage(data.current.condition.icon);
